@@ -1,5 +1,8 @@
+# playbooks/create_k3s_scripts/destroy_k3s_primary_master_node.yml
+
 - name: Destroy Primary Master Node
   hosts: primary_master_node
+  become: true
   tasks:
     - name: Execute K3s Node Destruction
       template:
@@ -7,3 +10,8 @@
         dest: /opt/k3s/destroy_k3s_node.sh
       vars:
         node_type: "MASTER_NODE"
+
+    - name: Change file permissions to 775
+      file:
+        path: /opt/k3s/destroy_k3s_node.sh
+        mode: "775"
