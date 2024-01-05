@@ -1,4 +1,4 @@
-# vars/your_variables_file.yaml
+# vars/primary_master_node_variables.yml
 
 node_name: "hippo.kozow.com"
 node_type: "1ST_MASTER_NODE"

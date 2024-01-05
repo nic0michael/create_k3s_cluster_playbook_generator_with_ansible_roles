@@ -1,4 +1,4 @@
-# vars/your_variables_file.yaml
+# vars/worker_node_variables.yml
 
 node_name: "zebra.kozow.com"
 node_type: "WORKER_NODE"

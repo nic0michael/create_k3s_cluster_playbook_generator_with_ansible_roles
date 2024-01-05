@@ -1,4 +1,4 @@
-# vars/your_variables_file.yaml
+# vars/other_master_node_variables.yml
 
 node_name: "giraffe.kozow.com"
 node_type: "OTHER_MASTER_NODE"
