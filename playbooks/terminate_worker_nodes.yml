@@ -1,0 +1,6 @@
+- name: Terminate Worker Nodes
+  hosts: worker_nodes
+  become: true
+  tasks:
+    - name: Run Bash Script on Worker Nodes
+      shell: "bash /opt/k3s/destroy_k3s_node.sh"
