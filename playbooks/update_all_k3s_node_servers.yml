@@ -1,7 +1,7 @@
 # playbooks/run_other_master.yml
 
 ---
-- hosts: all_active_nodes
+- hosts: all_active_machines
   remote_user: root
   become: true
 
