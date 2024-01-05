@@ -1,0 +1,10 @@
+# vars/your_variables_file.yaml
+
+node_name: "giraffe.kozow.com"
+node_type: "OTHER_MASTER_NODE"
+master_node_ip_address: "10.154.2.81"
+k3s_token: "K1002ab SHORTENED 6a32f35cfac4116fc6cf22b9176cc66"
+destination_file: "2nd_master_node.sh"
+username: "nickm"
+password: "PASSWORD"
+node_ip: "10.154.2.81"

@@ -1,0 +1,6 @@
+- name: Terminate Other Master Nodes
+  hosts: other_master_nodes
+  become: yes
+  tasks:
+    - name: Run Shell Script on Other Master Nodes
+      shell: /opt/k3s/destroy_k3s_node.sh

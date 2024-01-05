@@ -1,0 +1,6 @@
+- name: Terminate Primary Master Node
+  hosts: primary_master_node
+  become: yes
+  tasks:
+    - name: Run Shell Script on Primary Master Node
+      shell: /opt/k3s/destroy_k3s_node.sh

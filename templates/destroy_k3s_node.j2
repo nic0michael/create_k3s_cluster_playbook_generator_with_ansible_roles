@@ -1,0 +1,8 @@
+{% if node_type == "MASTER_NODE" %}
+/usr/local/bin/k3s-killall.sh
+/usr/local/bin/k3s-uninstall.sh
+
+{% elif node_type == "WORKER_NODE" %}
+/usr/local/bin/k3s-killall.sh
+/usr/local/bin/k3s-agent-uninstall.sh
+{% endif %}

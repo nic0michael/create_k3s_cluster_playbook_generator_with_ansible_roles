@@ -1,0 +1,9 @@
+- name: Destroy Other Master Nodes
+  hosts: other_master_nodes
+  tasks:
+    - name: Execute K3s Node Destruction
+      template:
+        src: destroy_k3s_node.j2
+        dest: /opt/k3s/destroy_k3s_node.sh
+      vars:
+        node_type: "MASTER_NODE"
