@@ -1,0 +1,19 @@
+{% if node_type == "1ST_MASTER_NODE" %}
+node_name="{{ node_name }}"
+curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init
+echo "please run this command"
+echo "cat /var/lib/rancher/k3s/server/node-token"
+
+{% elif node_type == "OTHER_MASTER_NODE" %}
+k3s_token="{{ k3s_token }}"
+k3s_url="https://{{ master_node_ip_address }}:6443"
+node_name="{{ node_name }}"
+curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url}
+
+{% elif node_type == "WORKER_NODE" %}
+k3s_token="{{ k3s_token }}"
+k3s_url="https://{{ master_node_ip_address }}:6443"
+node_name="{{ node_name }}"
+curl -sfL https://get.k3s.io | K3S_URL=${k3s_url} K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -
+
+{% endif %}

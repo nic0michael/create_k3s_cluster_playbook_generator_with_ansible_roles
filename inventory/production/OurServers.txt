@@ -1,0 +1,40 @@
+[primary_master_node]
+#300 
+hippo.kozow.com ansible_host=10.154.2.80 
+
+[other_master_nodes]
+#301 
+giraffe.kozow.com ansible_host=10.154.2.81
+
+#302 
+impala.kozow.com  ansible_host=10.154.2.82
+
+[worker_nodes]
+#303 
+zebra.kozow.com ansible_host=10.154.2.83
+
+#304 
+tiger.loseyourip.com ansible_host=10.154.2.91
+
+#305 
+kudu.loseyourip.com ansible_host=10.154.2.93
+
+[Management_Servers]
+#102 haproxy 
+buffalo.loseyourip.com ansible_host=10.154.2.88
+
+#251 Semaphore 
+leopard.loseyourip.com ansible_host=10.154.2.95
+
+## ALL DNS FQDNs
+================
+#300 hippo.kozow.com ansible_host=10.154.2.80
+#301 giraffe.kozow.com ansible_host=10.154.2.81
+#302 impala.kozow.com  ansible_host=10.154.2.82
+#303 zebra.kozow.com ansible_host=10.154.2.83
+#304 tiger.loseyourip.com ansible_host=10.154.2.91 CORRECT
+#305 kudu.loseyourip.com ansible_host=10.154.2.93 CORRECT
+
+#251 Semaphore leopard.loseyourip.com ansible_host=10.154.2.95 CORRECT
+#102 haproxy buffalo.loseyourip.com ansible_host=10.154.2.88 CORRECT
+#lion.loseyourip.com ansible_host=10.154.2.97 CORRECT

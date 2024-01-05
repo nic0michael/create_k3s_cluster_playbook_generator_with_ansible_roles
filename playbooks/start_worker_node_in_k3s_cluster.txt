@@ -1,0 +1,4 @@
+To launch this playbook  from the terminal: start_worker_node_in_k3s_cluster.yml
+Run this command from the terminal
+
+ansible-playbook /opt/semaphore/Create-K3S-Cluster-Ansible-Playbook/playbooks/start_worker_node_in_k3s_cluster.yml

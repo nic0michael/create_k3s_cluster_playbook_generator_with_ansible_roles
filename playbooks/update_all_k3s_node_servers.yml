@@ -1,0 +1,12 @@
+# playbooks/run_other_master.yml
+
+---
+- hosts: all_active_nodes
+  remote_user: root
+  become: true
+
+  tasks:
+    - name: APT Package Updater
+      apt:
+        upgrade: yes
+        update_cache: yes
