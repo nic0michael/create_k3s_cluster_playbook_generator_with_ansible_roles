@@ -1,0 +1,19 @@
+- name: Make nickm a sudoer on all servers
+  hosts: all_active_machines
+  tasks:
+    - name: Copy sudoer file for nickm
+      copy:
+        src: files/sudoer_nickm
+        dest: /etc/sudoers.d/nickm
+        mode: 0440
+        validate: /usr/sbin/visudo -cf %s
+
+- name: Make nico a sudoer on all servers
+  hosts: all_active_machines
+  tasks:
+    - name: Copy sudoer file for nickm
+      copy:
+        src: files/sudoer_nico
+        dest: /etc/sudoers.d/nico
+        mode: 0440
+        validate: /usr/sbin/visudo -cf %s
