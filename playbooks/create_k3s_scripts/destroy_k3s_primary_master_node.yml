@@ -7,11 +7,11 @@
     - name: Execute K3s Node Destruction
       template:
         src: ../../templates/destroy_k3s_node.j2
-        dest: /opt/k3s/destroy_k3s_node.sh
+        dest: /opt/k3s/destroy_k3s_master_node.sh
       vars:
         node_type: "MASTER_NODE"
 
     - name: Change file permissions to 775
       file:
-        path: /opt/k3s/destroy_k3s_node.sh
+        path: /opt/k3s/destroy_k3s_master_node.sh
         mode: "775"
