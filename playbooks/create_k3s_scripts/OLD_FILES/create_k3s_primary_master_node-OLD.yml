@@ -1,0 +1,41 @@
+- name: Create Primary Master Node
+  hosts: localhost
+  gather_facts: false
+  vars:
+    node_name: "{{ node_name }}"
+    master_node_ip_address: "{{ master_node_ip_address }}"
+    scp_script_path: "/opt/k3s/{{ scp_file }}"
+    username: "{{ username }}"  # Define the username variable here
+    dest_file: "{{ destination_file }}"
+    destination_folder: "/opt/k3s/" #"/home/{{username}}/" #"/opt/k3s/}"
+    node_ip: "{{master_node_ip_address}}"
+
+  tasks:
+
+    - name: Create more variables
+      set_fact:
+        source_file: "/opt/k3s/{{ dest_file }}"
+
+    - name: 1. Execute k3s_node_maker.j2 template for 1ST_MASTER_NODE - {{ source_file }}
+      template:
+        src: ../templates/k3s_node_maker.j2
+        dest: "{{ source_file }}"
+      vars:
+        node_type: "{{ node_type }}"
+        node_name: "{{ node_name }}"
+        master_node_ip_address: "{{ master_node_ip_address }}"
+      become: true  # If escalated permissions are needed
+
+    - name: 2. Change file permissions of other_master_node.sh - {{ source_file }}
+      become: true
+      file:
+        path: "{{ source_file }}"
+        mode: "775"
+        owner: "{{ username }}"  # Set the owner here
+        group: "{{ username }}"  # Set the group here
+
+    - name: 3. SCP Copy file  {{ source_file }} to {{ username  }}@{{ node_ip}}:{{destination_folder}}
+      ansible.builtin.command: >
+        sshpass -p "{{ password }}"
+        scp -o StrictHostKeyChecking=no -p "{{ source_file }}" "{{ username  }}@{{ node_ip}}:{{destination_folder}}"
+      delegate_to: localhost

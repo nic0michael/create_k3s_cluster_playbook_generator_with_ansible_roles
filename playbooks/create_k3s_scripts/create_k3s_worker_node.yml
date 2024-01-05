@@ -1,29 +1,24 @@
-# playbooks/create_k3s_scripts/create_k3s_worker_node.yml
 - name: Create Worker Node
   hosts: localhost
   gather_facts: false
-  vars:
-    node_name: "{{ node_name }}"
-    master_node_ip_address: "{{ master_node_ip_address }}"
-    k3s_token: "{{ k3s_token }}"  # Set your K3S token here
-    dest_file: "{{ destination_file }}"
-    destination_folder: "/opt/k3s/" #"/home/{{username}}/" #"/opt/k3s/}"
-    node_ip: "{{node_ip}}"
+
+  vars_files:
+    - vars/worker_node_variables.yml
 
   tasks:
 
     - name: Create more variables
       set_fact:
-        source_file: "/opt/k3s/{{ dest_file }}"
+        source_file: "/opt/k3s/{{ destination_file }}"
 
     - name: 1. Execute k3s_node_maker.j2 template for WORKER_NODE - {{ source_file }}
       template:
         src: ../templates/k3s_node_maker.j2
         dest: "{{ source_file }}"
       vars:
-        node_type: "WORKER_NODE"
-        node_name: "{{node_name}}"
-        node_ip: "{{node_ip}}"
+        node_type: "{{ node_type }}"
+        node_name: "{{ node_name }}"
+        node_ip: "{{ node_ip }}"
         master_node_ip_address: "{{ master_node_ip_address }}"
         k3s_token: "{{ k3s_token }}"
 
@@ -32,11 +27,10 @@
       file:
         path: "{{ source_file }}"
         mode: "775"
-        owner: "{{ username }}"  # Set the owner here
-        group: "{{ username }}"  # Set the group here
+        owner: "{{ username }}"
+        group: "{{ username }}"
 
-    - name: 3. SCP Copy file  {{ source_file }} to {{ username  }}@{{ node_ip}}:{{destination_folder}}
+    - name: 3. SCP Copy file  {{ source_file }} to {{ username }}@{{ node_ip }}:{{ destination_folder }}
       ansible.builtin.command: >
-        sshpass -p "{{ password }}"
-        scp -o StrictHostKeyChecking=no -p "{{ source_file }}" "{{ username  }}@{{ node_ip}}:{{destination_folder}}"
+        sshpass -p "{{ password }}" scp -o StrictHostKeyChecking=no -p "{{ source_file }}" "{{ username }}@{{ node_ip }}:{{ destination_folder }}"
       delegate_to: localhost
