@@ -29,9 +29,15 @@ zebra.kozow.com ansible_host=10.154.2.83
 #tiger.loseyourip.com ansible_host=10.154.2.91
 #kudu.loseyourip.com ansible_host=10.154.2.93
 
+[all_active_machines]
+leopard.loseyourip.com ansible_host=10.154.2.95
+upupa.loseyourip.com ansible_host=10.154.2.89
+hippo.kozow.com ansible_host=10.154.2.80
+giraffe.kozow.com ansible_host=10.154.2.81
+zebra.kozow.com ansible_host=10.154.2.83
+
 # Global variables
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=ansible
-
 ```
