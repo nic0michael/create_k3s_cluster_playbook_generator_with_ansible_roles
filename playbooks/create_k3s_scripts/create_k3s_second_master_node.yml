@@ -7,7 +7,7 @@
     - name: Execute k3s_node_maker.j2 template for SECOND_MASTER_NODE
       template:
         src: ../../templates/k3s_node_maker.j2
-        dest: /opt/k3s/create_k3s_second_master_node.sh
+        dest: /opt/k3s/create_k3s_master_node.sh
       vars:
         node_type: "OTHER_MASTER_NODE"  # Assuming second master node is similar to other master nodes
         node_name: "{{ node_name }}"
