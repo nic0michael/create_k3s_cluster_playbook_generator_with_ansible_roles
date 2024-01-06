@@ -16,7 +16,8 @@
 
     - name: Debug node_name
       debug:
-      var: node_name    
+        var: node_name
+
 
 
     - name: Execute k3s_node_maker.j2 template for SECOND_MASTER_NODE
