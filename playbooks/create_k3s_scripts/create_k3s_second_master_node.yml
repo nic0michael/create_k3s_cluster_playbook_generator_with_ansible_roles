@@ -1,6 +1,6 @@
 # playbooks/create_k3s_scripts/create_k3s_second_master_node.yml
 - name: Create Second Master Node
-  hosts: {{node_ip}}
+  hosts: 10.154.2.81
   become: true
   vars_files:
     - ../../vars/other_master_node_variables.yml
