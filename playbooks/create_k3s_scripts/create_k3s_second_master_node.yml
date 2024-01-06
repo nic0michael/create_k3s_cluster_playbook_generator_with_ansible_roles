@@ -10,28 +10,4 @@
       debug:
         msg: "node_name {{ node_name }} node_ip {{ node_ip }} master_node_ip_address {{ master_node_ip_address }} "
 
-    - name: Show k3s_token
-      debug:
-        msg: "k3s_token {{ k3s_token }} "
-
-    - name: Debug node_name
-      debug:
-        var: node_name
-
-
-
-    - name: Execute k3s_node_maker.j2 template for SECOND_MASTER_NODE
-      template:
-        src: ../../templates/k3s_node_maker.j2
-        dest: /opt/k3s/create_k3s_master_node.sh
-      vars:
-        node_type: "OTHER_MASTER_NODE"  # Assuming second master node is similar to other master nodes
-        node_name: "{{ node_name }}"
-        node_ip: "{{ node_ip }}"
-        master_node_ip_address: "{{ master_node_ip_address }}"
-        k3s_token: "{{ k3s_token }}"
-
-    - name: Change file permissions to 775 for create_k3s_second_master_node.sh
-      file:
-        path: /opt/k3s/create_k3s_second_master_node.sh
-        mode: "775"
+    
