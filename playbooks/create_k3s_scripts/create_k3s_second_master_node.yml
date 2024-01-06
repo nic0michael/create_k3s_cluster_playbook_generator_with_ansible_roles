@@ -1,9 +1,20 @@
+# playbooks/create_k3s_scripts/create_k3s_second_master_node.yml
 - name: Create Second Master Node
   hosts: other_master_nodes
   become: true
   vars_files:
     - vars/other_master_node_variables.yml
   tasks:
+
+    - name: Show variable names and values
+      debug:
+        msg: "node_name {{ node_name }} node_ip {{ node_ip }} master_node_ip_address {{ master_node_ip_address }} "
+            
+    - name: Show k3s_token
+      debug:
+        msg: "k3s_token {{ k3s_token }} "
+
+
     - name: Execute k3s_node_maker.j2 template for SECOND_MASTER_NODE
       template:
         src: ../../templates/k3s_node_maker.j2
