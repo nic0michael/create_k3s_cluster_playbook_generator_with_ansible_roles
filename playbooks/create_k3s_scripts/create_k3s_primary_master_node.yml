@@ -13,7 +13,7 @@
 
     - name: 1. Execute k3s_node_maker.j2 template for 1ST_MASTER_NODE - {{ source_file }}
       template:
-        src: ../templates/k3s_node_maker.j2
+        src: ../../templates/k3s_node_maker.j2
         dest: "{{ source_file }}"
       vars:
         node_type: "{{ node_type }}"

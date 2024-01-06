@@ -1,3 +1,6 @@
+
+# playbooks/create_k3s_scripts/create_k3s_worker_node.yml
+
 - name: Create Worker Node
   hosts: localhost
   gather_facts: false
