@@ -27,3 +27,9 @@
         node_ip: "{{ node_ip }}"
         master_node_ip_address: "{{ master_node_ip_address }}"
         k3s_token: "{{ k3s_token }}"
+
+
+    - name: Change file permissions to 775 for create_k3s_second_master_node.sh
+      file:
+        path: /opt/k3s/create_k3s_master_node.sh
+        mode: "775"
