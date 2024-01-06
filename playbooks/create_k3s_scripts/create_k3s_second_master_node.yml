@@ -1,5 +1,5 @@
 - name: Create Second Master Node
-  hosts: second_master_node
+  hosts: other_master_nodes
   become: true
   vars_files:
     - vars/other_master_node_variables.yml
