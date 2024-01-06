@@ -6,11 +6,16 @@
     - ../../vars/other_master_node_variables.yml
   tasks:
 
+    - name: Create variables
+      set_fact:
+        node_name: '{{ node_name}}'
+        node_ip: '{{node_ip}}'
+        master_node_ip_address: '{{master_node_ip_address}}'
+        k3s_token: '{{k3s_token}}'
+
     - name: Show variable names and values
       debug:
         msg: "node_name {{ node_name }} node_ip {{ node_ip }} master_node_ip_address {{ master_node_ip_address }} "
-
-
 
     - name: Execute k3s_node_maker.j2 template for SECOND_MASTER_NODE
       template:
