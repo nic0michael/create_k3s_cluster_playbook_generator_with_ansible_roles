@@ -1,0 +1,15 @@
+- name: Create Other Master Nodes
+  hosts: other_master_nodes
+  become: true
+  tasks:
+    - name: Execute k3s_node_maker.j2 template for OTHER_MASTER_NODE
+      template:
+        src: ../templates/k3s_node_maker.j2
+        dest: /opt/k3s/create_other_master_node.sh
+      vars:
+        node_type: "OTHER_MASTER_NODE"
+
+    - name: Change file permissions to 775 for create_other_master_node.sh
+      file:
+        path: /opt/k3s/create_other_master_node.sh
+        mode: "775"
