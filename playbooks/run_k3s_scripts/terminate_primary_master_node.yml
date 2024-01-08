@@ -3,4 +3,4 @@
   become: true
   tasks:
     - name: Run Bash Script on Primary Master Node
-      shell: "bash /opt/k3s/destroy_k3s_node.sh"
+      shell: "bash /opt/k3s/destroy_k3s_master_node.sh"
