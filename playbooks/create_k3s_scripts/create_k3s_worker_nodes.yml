@@ -7,9 +7,14 @@
     - ../../vars/worker_node_variables.yml
   tasks:
 
+    - name: Display current server name
+      debug:
+        msg: "Current server name is {{ inventory_hostname }}"
+
     - name: Create variables
       set_fact:
-        node_name: '{{ node_name}}'
+#       node_name: '{{ node_name}}'
+        node_name: '{{ inventory_hostname}}'
         node_ip: '{{node_ip}}'
         master_node_ip_address: '{{master_node_ip_address}}'
         k3s_token: '{{k3s_token}}'
