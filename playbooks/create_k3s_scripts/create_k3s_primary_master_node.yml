@@ -20,6 +20,7 @@
         node_ip: '{{node_ip}}'
         master_node_ip_address: '{{master_node_ip_address}}'
         k3s_token: '{{k3s_token}}'
+        destination_file: '{{destination_file}}'
 
     - name: 1. Execute k3s_node_maker.j2 template for 1ST_MASTER_NODE - {{ source_file }}
       template:
