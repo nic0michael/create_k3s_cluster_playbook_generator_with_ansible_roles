@@ -1,6 +1,5 @@
 # playbooks/create_k3s_scripts/make_all_k3s_scripts.yml
 ---
-- name: 7. Make all K3S Scriptss
 
 - name: 7.1 Create Primary Master Node
   import_playbook: create_k3s_primary_master_node.yml
