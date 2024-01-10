@@ -20,7 +20,6 @@
       set_fact:
         source_file: "/opt/k3s/primary_master_node.sh"
         node_type: "{{node_type}}"
-#       node_name: '{{ node_name}}'
         node_name: '{{ inventory_hostname}}'
         node_ip: '{{ ansible_host}}'
         master_node_ip_address: '{{ ansible_host}}'
