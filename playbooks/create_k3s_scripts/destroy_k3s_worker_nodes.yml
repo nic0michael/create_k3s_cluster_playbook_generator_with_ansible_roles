@@ -1,16 +1,16 @@
 # playbooks/create_k3s_scripts/destroy_k3s_worker_nodes.yml
-- name: Destroy Worker Nodes
+- name: 6. Destroy Worker Nodes
   hosts: worker_nodes
   become: true
   tasks:
-    - name: Execute K3s Node Destruction
+    - name: 6.1 Execute K3s Node Destruction
       template:
         src: ../../templates/destroy_k3s_node.j2
         dest: /opt/k3s/destroy_k3s_worker_node.sh
       vars:
         node_type: "WORKER_NODE"
 
-    - name: Change file permissions to 775
+    - name: 6.2 Change file permissions to 775
       file:
         path: /opt/k3s/destroy_k3s_worker_node.sh
         mode: "775"

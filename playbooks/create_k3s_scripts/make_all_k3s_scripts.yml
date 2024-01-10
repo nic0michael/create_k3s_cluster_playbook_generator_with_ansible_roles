@@ -1,19 +1,19 @@
 # playbooks/create_k3s_scripts/make_all_k3s_scripts.yml
 ---
-- name: Create Primary Master Node
+- name: 7.1 Create Primary Master Node
   import_playbook: create_k3s_primary_master_node.yml
 
-- name: Create Other Master Nodes
+- name: 7.2 Create Other Master Nodes
   import_playbook: create_k3s_other_master_nodes.yml
 
-- name: Create Worker Nodes
+- name: 7.3 Create Worker Nodes
   import_playbook: create_k3s_worker_nodes.yml
 
 
-- name: Destroy Primary Master Node
+- name: 7.4 Destroy Primary Master Node
   import_playbook: destroy_k3s_primary_master_node.yml
 
-- name: Destroy Other Master Nodes
+- name: 7.5 Destroy Other Master Nodes
   import_playbook: create_k3s_other_master_nodes.yml
 
-- name: Destroy Worker Nodes
+- name: 7.6 Destroy Worker Nodes

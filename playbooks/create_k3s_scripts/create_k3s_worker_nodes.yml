@@ -1,17 +1,17 @@
 # playbooks/create_k3s_scripts/create_k3s_second_master_node.yml
 
-- name: Create Worker Nodes
+- name: 3. Create Worker Nodes
   hosts: worker_nodes
   become: true
   vars_files:
     - ../../vars/worker_node_variables.yml
   tasks:
 
-    - name: Display current server name
+    - name: 3.1 Display current server name
       debug:
         msg: "Current server name is {{ inventory_hostname }}"
 
-    - name: Create variables
+    - name: 3.2 Create variables
       set_fact:
 #       node_name: '{{ node_name}}'
         node_name: '{{ inventory_hostname}}'
@@ -19,11 +19,11 @@
         master_node_ip_address: '{{master_node_ip_address}}'
         k3s_token: '{{k3s_token}}'
 
-    - name: Show variable names and values
+    - name: 3.3 Show variable names and values
       debug:
         msg: "node_name {{ node_name }} node_ip {{ node_ip }} master_node_ip_address {{ master_node_ip_address }} "
 
-    - name: Execute k3s_node_maker.j2 template for SECOND_MASTER_NODE
+    - name: 3.4 Execute k3s_node_maker.j2 template for SECOND_MASTER_NODE
       template:
         src: ../../templates/k3s_node_maker.j2
         dest: /opt/k3s/create_k3s_worker_node.sh
@@ -35,7 +35,7 @@
         k3s_token: "{{ k3s_token }}"
 
 
-    - name: Change file permissions to 775 for create_k3s_second_master_node.sh
+    - name: 3.5 Change file permissions to 775 for create_k3s_second_master_node.sh
       file:
         path: /opt/k3s/create_k3s_worker_node.sh
         mode: "775"
