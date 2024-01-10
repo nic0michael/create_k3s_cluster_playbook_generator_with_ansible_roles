@@ -13,7 +13,7 @@
 
     - name: Create more variables
       set_fact:
-        source_file: "/opt/k3s/"primary_master_node.sh"
+        source_file: "/opt/k3s/primary_master_node.sh"
         node_type: "{{ node_type }}"
 #       node_name: '{{ node_name}}'
         node_name: '{{ inventory_hostname}}'
