@@ -1,6 +1,6 @@
 # playbooks/create_k3s_scripts/create_k3s_second_master_node.yml
 
-- name: Create Other Master Nodes
+- name: Create Worker Nodes
   hosts: worker_nodes
   become: true
   vars_files:
