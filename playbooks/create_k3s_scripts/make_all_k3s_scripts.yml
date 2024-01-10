@@ -3,7 +3,7 @@
 
 - name: 7.1 Create Primary Master Node
   import_playbook: create_k3s_primary_master_node.yml
-    import_playbook: create_k3s_primary_master_node.yml
+  import_playbook: create_k3s_primary_master_node.yml
 
 - name: 7.2 Create Other Master Nodes
   import_playbook: create_k3s_other_master_nodes.yml
