@@ -10,12 +10,10 @@
   import_playbook: create_k3s_worker_nodes.yml
 
 
-  - name: Destroy Primary Master Node
-    import_playbook: destroy_k3s_primary_master_node.yml
+- name: Destroy Primary Master Node
+  import_playbook: destroy_k3s_primary_master_node.yml
 
-  - name: Destroy Other Master Nodes
-    import_playbook: create_k3s_other_master_nodes.yml
+- name: Destroy Other Master Nodes
+  import_playbook: create_k3s_other_master_nodes.yml
 
-  - name: Destroy Worker Nodes
-    import_playbook: destroy_k3s_worker_nodes.yml
-    
+- name: Destroy Worker Nodes
