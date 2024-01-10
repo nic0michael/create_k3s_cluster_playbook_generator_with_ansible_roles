@@ -4,6 +4,10 @@
   hosts: worker_nodes
   become: true
 
+- name: 3.2 Create variables
+  set_fact:
+    MAke_Create_scripts: true
+
 - name: 7.1 Create Primary Master Node
   import_playbook: create_k3s_primary_master_node.yml
 
@@ -14,10 +18,11 @@
   import_playbook: create_k3s_worker_nodes.yml
 
 
-- name: 7.4 Destroy Primary Master Node
+- name: 7.4 Destroy Primary Master Node#
   import_playbook: destroy_k3s_primary_master_node.yml
 
 - name: 7.5 Destroy Other Master Nodes
-  import_playbook: create_k3s_other_master_nodes.yml
+  import_playbook: destroy_k3s_other_master_nodes.yml
 
 - name: 7.6 Destroy Worker Nodes
+  import_playbook: destroy_k3s_worker_nodes.yml
