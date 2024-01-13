@@ -11,9 +11,20 @@
       debug:
         msg: "Current server name is {{ inventory_hostname }}"
 
+
+    - name: 1.1b Display current server name
+      debug:
+        msg: "Current server name is {{ groups['primary_master_node'][0] }}"
+
+
     - name: 1.2 Display current server IP
       debug:
         msg: "IP address of the current server is {{ ansible_host }}"
+
+
+    - name: 1.2b Display current server IP
+      debug:
+        msg: "IP address of the current server is {{ hostvars[groups['primary_master_node'][0]]['ansible_host'] }}"
 
 
     - name: 1.3 Create more variables
