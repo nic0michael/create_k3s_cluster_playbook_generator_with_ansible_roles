@@ -1,14 +1,9 @@
 ---
 # start_other_master_node_in_k3s_cluster.yml
 
-- name: Execute 2nd_master_node.sh commands on other_master_nodes as root
+- name: Execute create_k3s_master_node.sh commands on other_master_nodes as root
   hosts: other_master_nodes
   become: true
   tasks:
-    - name: Run commands from 2nd_master_node.sh
+    - name: Run commands from create_k3s_master_node.sh
       shell: "bash /opt/k3s/create_k3s_master_node.sh"
-      register: script_output
-
-    - name: Display output of 2nd_master_node.sh
-      debug:
-        var: script_output.stdout_lines

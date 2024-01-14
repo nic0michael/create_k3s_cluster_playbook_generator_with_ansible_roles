@@ -1,9 +1,9 @@
 ---
 # start_worker_node_in_k3s_cluster.yml
 
-- name: Execute 1stworker_node.sh commands on worker_nodes as root
+- name: Execute create_k3s_worker_node.sh commands on worker_nodes as root
   hosts: worker_nodes
   become: true
   tasks:
-    - name: Run commands from 1stworker_node.sh
+    - name: Run commands from create_k3s_worker_node.sh
       shell: "bash /opt/k3s/create_k3s_worker_node.sh"
