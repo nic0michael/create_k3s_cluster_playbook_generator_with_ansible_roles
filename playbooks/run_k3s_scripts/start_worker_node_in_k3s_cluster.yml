@@ -6,4 +6,4 @@
   become: true
   tasks:
     - name: Run commands from 1stworker_node.sh
-      shell: "bash /opt/k3s/1stworker_node.sh"
+      shell: "bash /opt/k3s/create_k3s_worker_node.sh"

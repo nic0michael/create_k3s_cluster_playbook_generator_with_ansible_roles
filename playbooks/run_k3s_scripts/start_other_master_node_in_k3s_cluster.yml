@@ -6,7 +6,7 @@
   become: true
   tasks:
     - name: Run commands from 2nd_master_node.sh
-      shell: "bash /opt/k3s/2nd_master_node.sh"
+      shell: "bash /opt/k3s/create_k3s_master_node.sh"
       register: script_output
 
     - name: Display output of 2nd_master_node.sh
