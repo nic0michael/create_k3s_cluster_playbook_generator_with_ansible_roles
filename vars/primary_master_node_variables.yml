@@ -3,7 +3,7 @@
 node_name: "hippo.kozow.com"
 node_type: "1ST_MASTER_NODE"
 master_node_ip_address: "10.154.2.80"
-k3s_token: "K103fed4d8c69ea3cafaa5e09ab29d0318ff17452824999e2e33674427803657f81::server:bcc0402fc9d0b8ebb9b2418d5c6bb474"
+k3s_token: "K10bb85c79aaeae6d363816c4ed18f29fcc251f57f450906b48f7e0a67d00315373::server:1d91aca3e23ae42b67a38d3ebf136e54"
 destination_file: "primary_master_node.sh"
 username: "nickm"
 password: "P@55w0rd"
