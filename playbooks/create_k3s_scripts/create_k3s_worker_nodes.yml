@@ -5,6 +5,10 @@
   become: true
   vars_files:
     - ../../vars/worker_node_variables.yml
+
+  vars:
+    ansible_ssh_private_key_file: /home/ansible/.ssh/id_rsa
+    
   tasks:
 
     - name: 3.1 Display current server name
