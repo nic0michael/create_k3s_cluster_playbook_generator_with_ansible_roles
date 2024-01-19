@@ -8,7 +8,7 @@ echo "cat /var/lib/rancher/k3s/server/node-token"
 k3s_token="{{ k3s_token }}"
 k3s_url="https://{{ master_node_ip_address }}:6443"
 node_name="{{ node_name }}"
-curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url}
+curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url} --write-kubeconfig-mode=644
 
 {% elif node_type == "WORKER_NODE" %}
 k3s_token="{{ k3s_token }}"
