@@ -2,6 +2,10 @@
 - name: 4. Destroy Other Master Nodes
   hosts: other_master_nodes
   become: true
+
+  vars:
+    ansible_ssh_private_key_file: /home/ansible/.ssh/id_rsa
+
   tasks:
     - name: 4.1 Execute K3s Node Destruction
       template:
