@@ -2,7 +2,7 @@
 
 node_name: "giraffe.kozow.com"
 node_type: "OTHER_MASTER_NODE"
-master_node_ip_address: "10.154.2.81"
+master_node_ip_address: "10.154.2.80"
 k3s_token: "K1099ce5da7992f1bc7f037c6ee09244b83150a59ddcc49b4e1bbb8b31e4295f458::server:51c5355e2ede7b0a6c0d215409c6a22c"
 destination_file: "2nd_master_node.sh"
 username: "nickm"
