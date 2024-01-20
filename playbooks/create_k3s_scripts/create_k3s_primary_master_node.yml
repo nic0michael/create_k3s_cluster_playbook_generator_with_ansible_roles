@@ -31,7 +31,7 @@
       set_fact:
         source_file: "/opt/k3s/{{destination_file}}"
         node_type: "{{node_type}}"
-        node_name: '{{ inventory_hostname}}'
+        node_name: '{{ node_name}}'
         node_ip: '{{ node_ip }}'
         master_node_ip_address: '{{ node_ip }}'
         k3s_token: "Not/Required"
