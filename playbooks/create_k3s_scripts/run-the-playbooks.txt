@@ -1,0 +1,1 @@
+ansible-playbook make_all_k3s_scripts.yml
